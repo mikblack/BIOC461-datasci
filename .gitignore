@@ -1,5 +1,14 @@
-# Material from Catehrine and Adam M
+# Material from Catherine and Adam M
 Module-1-Material
+
+# R stuff
+.here
+.cache
+*.rproj
+
+# My notes RE emails with Peter and Paul
+notes.md
+
 
 # History files
 .Rhistory
