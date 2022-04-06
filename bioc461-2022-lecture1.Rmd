@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE)
  
  3. Statistical testing
  
- 4. Power calculations
+ 4. P-hacking
 
 # Part 1: Project Organisation
 
