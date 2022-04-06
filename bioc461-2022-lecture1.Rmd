@@ -379,7 +379,7 @@ Often want to plot this summary data
 
 <font color='black'>
 <b>YOU CAN MAKE THE PLOT RIGHT IN THE EXCEL SHEET!</b> 
-`r emo::ji('person_facepalming')`
+       `r #emo::ji('person_facepalming')`
 </font>
 
 <BR>
@@ -748,3 +748,115 @@ p.adjust(pval, method="fdr")
    - it is telling you that you could have gotten these results by chance
    - either there is no difference, or your need to perform additional experimentation (i.e., increase the sample size) to be more certain.
    
+# Part 3 - P-hacking
+
+## P-hacking
+
+<center><img src="PNG/20-sided-dice.png" width="400"></center>
+
+
+## What is P-hacking? 
+
+ - Also called "data dredging", is the misuse of data analysis methods to identify statistically significant results, which increases the risk of false positive findings.
+
+ - Causes two types of publication bias:
+
+    1. The "file drawer effect": non-significant results are under reported
+
+    2. And "P-hacking": selective reporting of of only significant results 
+
+    Wikipedia page: [Data dredging](https://en.wikipedia.org/wiki/Data_dredging) 
+
+
+
+## A demonstration
+
+ - Generate 2 randomnly sampled datasets in R
+
+```{r}
+      n<-20
+      (x<-rnorm(n))
+      (y<-rnorm(n))
+```
+
+## A demonstration -- test for a significant difference 
+
+```{r}
+t.test(x, y)
+```
+
+## A demonstration -- another test for a significant difference 
+
+```{r}
+t.test(x, y, alternative = "less")
+
+```
+
+## A demonstration  -- another test for a significant difference 
+
+```{r}
+t.test(x, y, alternative = "greater")
+```
+
+
+## A demonstration  -- another test for a significant difference 
+
+```{r}
+wilcox.test(x,y)
+```
+
+## A demonstration  -- lots of other tests 
+
+ - cor.test
+
+ - ks.test
+
+ - kruskal.test
+
+ - var.test
+
+ - anova
+
+ - chisq.test
+
+ - shapiro.test
+
+
+## My unethical employer needs "significance" 
+
+ - Keep resampling/adding data until you get the desired result: 
+
+```{r}
+ for (l in 1:100){
+      y  <- rnorm(50)
+      x  <- rnorm(50) 
+      p <- t.test(x, y)$p.value
+      if(p < 0.05){
+           cat("Test [", l, "] is significant (p=", p, "). You can publish this one!\n")
+      }
+}
+```
+
+## How can we know if this is a real problem?
+
+ - P-curves may tell us a lot:
+
+<center><img src="PNG/p-curve.png" width="400"></center>
+
+
+ - **A peculiar prevalence of p values just below .05**:
+    <BR>
+    Masicampo EJ, Lalande DR. Quarterly journal of experimental psychology. 2012 Nov;65(11):2271-9.
+    <BR> 
+    doi: [10.1080/17470218.2012.711335](https://doi.org/10.1080/17470218.2012.711335) 
+
+
+## Spurious correlations
+
+ - Website: [https://www.tylervigen.com/spurious-correlations](https://www.tylervigen.com/spurious-correlations) 
+
+<center><img src="PNG/spurious.png" width="700"></center>
+
+
+## Solutions? 
+
