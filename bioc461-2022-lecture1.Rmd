@@ -575,6 +575,14 @@ ggplot(tooth_growth, aes(x=as.factor(dose), y=len, fill=supp)) +
   geom_jitter(position = position_jitterdodge(jitter.width=0.12), alpha=0.7)
 ```
 
+## Datasaurus
+
+<center><img src="PNG/datasaurus.png" width="600"></center>
+
+ - URL: [https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03](https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03) 
+
+
+
 # Part 3 - Statistical Testing
 
 ## Two sample test
