@@ -3,10 +3,11 @@ title: "BIOC461"
 author: "Mik Black & Paul Gardner<BR>Department of Biochemistry"
 date: "30 March 2023"
 output:
-  beamer_presentation: default
-  github_document: default
   ioslides_presentation:
     widescreen: yes
+  github_document: default
+  slidy_presentation: default
+  beamer_presentation: default
 framework: io2012
 highlighter: highlight.js
 hitheme: tomorrow

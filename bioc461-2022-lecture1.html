@@ -3205,7 +3205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>Todays lecture</h2></hgroup><article  id="todays-lecture">
+<slide class=""><hgroup><h2>Today’s lecture</h2></hgroup><article  id="todays-lecture">
 
 <ol>
 <li><p>Good practice for project organisation</p></li>
@@ -3317,7 +3317,7 @@ Project Organization
 <li><p>If your laptop/desktop was unexpectedly destroyed by evil anti-research forces, what impact would this have on your project? (it’s ok, we’ll buy you a shiny new one from our &ldquo;anti-anti-research forces&rdquo; insurance fund).</p></li>
 </ol>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Lets (briefly) discuss your answers…</h2></hgroup><article  id="lets-briefly-discuss-your-answers">
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Let’s (briefly) discuss your answers…</h2></hgroup><article  id="lets-briefly-discuss-your-answers">
 
 </article></slide><slide class=""><hgroup><h2>Data management</h2></hgroup><article  id="data-management">
 
@@ -3396,7 +3396,7 @@ Project Organization
 
 <ul>
 <li>explain what the code does, and how to use it.</li>
-<li>if approriate, include example of usage.</li>
+<li>if appropriate, include examples of usage.</li>
 </ul></li>
 <li><p>Decompose programs into functions.</p>
 
@@ -3450,7 +3450,7 @@ Project Organization
 
 <!-- <ol start=8>  -->
 
-<!-- <li> Do not comment and uncomment sections of code to control a program's behavior. -->
+<!-- <li> Do not comment and uncomment sections of code to control a program's behaviour. -->
 
 <!--   - error prone -->
 
@@ -3483,7 +3483,7 @@ Project Organization
 <li><p>Create an overview of your project.</p>
 
 <ul>
-<li><code>README.txt</code> or <code>README.md</code> in top-level directory</li>
+<li><code>README.txt</code> or <code>README.md</code> in the top-level directory</li>
 </ul></li>
 <li><p>Create a shared &ldquo;to-do&rdquo; list for the project.</p>
 
@@ -3555,7 +3555,7 @@ Project Organization
 
 <ul>
 <li>may not be relevant for some projects (e.g., if not using compiled code)</li>
-<li>why external scripts here? Can make distinction for edited vs non-edited files: binary files and external scripts are not directly edited.</li>
+<li>why external scripts here? So you can make a distinction for edited vs non-edited files: binary files and external scripts are not directly edited.</li>
 </ul>
 
 <li>
@@ -3612,7 +3612,7 @@ Project Organization
 
 <ul>
 <li>Excel has the ability to make raw data look very pretty.</li>
-<li>Statistics applications (e.g., SPSS, R, SAS, Prism) often have trouble reading in the pretty data.</li>
+<li>Statistics applications (e.g., SPSS, R, SAS, Prism) often have trouble reading pretty data.</li>
 </ul></li>
 <li>Try to keep it simple:
 
@@ -3634,14 +3634,14 @@ Project Organization
 
 <p><BR></p>
 
-<p>We’ll start off looking at a fairly typical (Excel-based) approach to data organisation and analysis.</p>
+<p>We’ll start by looking at a fairly typical (Excel-based) approach to data organisation and analysis.</p>
 
 </article></slide><slide class=""><hgroup><h2>&ldquo;Tooth Growth&rdquo; data set</h2></hgroup><article  id="tooth-growth-data-set">
 
 <ul>
 <li>Length of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs</li>
 <li>Guinea pigs exposed to different doses of Vitamin C, via two different mechanisms.</li>
-<li>Variables in data set:
+<li>Variables in the data set:
 
 <ul>
 <li>len = Tooth length (unit unknown…)</li>
@@ -3763,7 +3763,7 @@ Project Organization
 
 <ul>
 <li>record all the steps: use a script-based language (e.g., R or Python)</li>
-<li>separate input data from derived data: use script to read raw data and produce outputs</li>
+<li>separate input data from derived data: use a script to read raw data and produce outputs</li>
 </ul></li>
 </ul>
 
@@ -3777,7 +3777,7 @@ Project Organization
 
 </center>
 
-<p><BR> Save as a <code>.csv</code> file, and store in separate <code>Data</code> folder.</p>
+<p><BR> Save as a <code>.csv</code> file, and store in a separate <code>Data</code> folder.</p>
 
 </article></slide><slide class=""><hgroup><h2>Analysis</h2></hgroup><article  id="analysis">
 
@@ -3786,7 +3786,7 @@ Project Organization
 <li>Let’s have a look at a typical R workflow for this.</li>
 </ul>
 
-<pre class = 'prettyprint lang-r'># Read in the data
+<pre class = 'prettyprint lang-r'># Read the data
 tooth_growth = read.csv(&#39;Data/tooth-growth-long-format.csv&#39;)
 
 # Look at the first few rows
@@ -3898,7 +3898,7 @@ tg_summary</pre>
 </article></slide><slide class=""><hgroup><h2>How to plot?</h2></hgroup><article  id="how-to-plot">
 
 <ul>
-<li>The <code>ggplot2</code> packge for R has become (by far) the most popular tool for producing publication quality figures in R.</li>
+<li>The <code>ggplot2</code> package for R has become (by far) the most popular tool for producing publication quality figures in R.</li>
 <li>It takes a little bit of effort (and Googling) to learn the syntax, but it is an <em>extremely</em> powerful and flexible tool.</li>
 <li>Murray Cadzow runs courses that teach R and <code>ggplot</code> basics - these are well worth attending.</li>
 <li>Let’s have a look at generating a bar plot of our summary data in R.</li>
@@ -3917,7 +3917,7 @@ ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) +
 <p>Breaking down the code:</p>
 
 <ul>
-<li><code>ggplot</code> takes the data object (<code>tg_summary</code>), converts <code>dose</code> to a factor, plots <code>dose</code> on the x axis and <code>MeanLength</code> on the y axis, and uses <code>supp</code> to define colours.</li>
+<li><code>ggplot</code> takes the data object (<code>tg_summary</code>), converts <code>dose</code> to a factor, plots <code>dose</code> on the x-axis and <code>MeanLength</code> on the y-axis, and uses <code>supp</code> to define colours.</li>
 <li><code>geom_bar</code> generates the barplot, using the values from <code>tg_sumamry</code> (<code>identity</code>) and puts the bars next to each other (<code>dodge</code>).</li>
 </ul>
 
@@ -3942,7 +3942,7 @@ ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) +
 
 <p><img src="data:image/png;base64,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" width="720" /></p>
 
-</article></slide><slide class=""><hgroup><h2>Making in prettier</h2></hgroup><article  id="making-in-prettier">
+</article></slide><slide class=""><hgroup><h2>Making it prettier</h2></hgroup><article  id="making-it-prettier">
 
 <pre class = 'prettyprint lang-r'>ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) + 
   geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;) + 
@@ -4023,11 +4023,11 @@ ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) +
 
 </article></slide><slide class=""><hgroup><h2>Two sample test</h2></hgroup><article  id="two-sample-test">
 
-<p>Lets start with a smaller data set: just the OJ vs VC data for a dose of 1mg.</p>
+<p>Let’s start with a smaller data set: just the OJ vs VC data for a dose of 1mg.</p>
 
-<pre class = 'prettyprint lang-r'># Read in reduced data set
+<pre class = 'prettyprint lang-r'># Read in a reduced data set
 tg_1mg = read.csv(&#39;Data/tooth-growth-long-format-dose-1mg.csv&#39;)
-# Show first few rows
+# Show the first few rows
 head(tg_1mg)</pre>
 
 <pre >##    len supp
@@ -4102,7 +4102,7 @@ head(tg_1mg)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Rank-based data</h2></hgroup><article  id="rank-based-data">
 
-<p>Stripchart of length distribution for each group:</p>
+<p>Stripcharts of the length distributions for each group:</p>
 
 <center>
 
@@ -4136,7 +4136,7 @@ head(tg_1mg)</pre>
 
 <p>P-value (0.004) again suggests there is a significant length difference between the groups.</p>
 
-<p>NB: the warning just means that an approximation is being used to calculate the p-value, as there are ties pesent in the data (same value).</p>
+<p>NB: the warning just means that an approximation is being used to calculate the p-value, as there are ties present in the data (same value).</p>
 
 </article></slide><slide class=""><hgroup><h2>Testing more hypotheses</h2></hgroup><article  id="testing-more-hypotheses">
 
@@ -4176,7 +4176,7 @@ pval</pre>
 </article></slide><slide class=""><hgroup><h2>Multiple hypothesis testing</h2></hgroup><article  id="multiple-hypothesis-testing">
 
 <ul>
-<li>Based on the three p-values, it looks like there is a difference in length at doses 0.5mg and 1.0mg, but not 2.0mg (amusing that p &lt; 0.05 indicates significant).
+<li>Based on the three p-values, it looks like there is a difference in length at doses 0.5mg and 1.0mg, but not 2.0mg (amusing that p &lt; 0.05 indicates significance).
 
 <ul>
 <li>By setting a significance at \(\alpha\) = 0.05, we are specifying the Type I error rate for our tests - also known as the false positive rate.</li>
@@ -4189,20 +4189,20 @@ pval</pre>
 </article></slide><slide class=""><hgroup><h2>Multiple testing corrections</h2></hgroup><article  id="multiple-testing-corrections">
 
 <ul>
-<li><p>A prevent large numbers of false positives when testing many hypotheses, we employ <b>multiple testing correction</b>. Two ways to think about it:</p>
+<li><p>To prevent large numbers of false positives when testing many hypotheses, we employ <b>multiple testing correction</b>. Two ways to think about it:</p>
 
 <ul>
 <li>make the p-values BIGGER, and use the same threshold</li>
 <li>make the threshold SMALLER, and use the same p-values</li>
 </ul></li>
-<li><p>In Genome Wide Association Studies, the latter approach is generally used: typical genome-wide significance is set at 5x10<sup>-8</sup>.</p>
+<li><p>In Genome-Wide Association Studies (GWAS), the latter approach is generally used: typical genome-wide significance is set at 5x10<sup>-8</sup>.</p>
 
 <ul>
 <li>Bonferroni Correction: \(\alpha^{*} = \frac{\alpha}{\mathrm{number~of~tests}} = \frac{0.05}{1000000} = 5\times10^{-8}\)</li>
 <li>P-value &lt; 5x10<sup>-8</sup> is required for significance.</li>
-<li>Alternatively, could multiple each p-value by 1,000,000 and use a threshold of 0.05 (first approach, above).</li>
+<li>Alternatively, could multiply each p-value by 1,000,000 and use a threshold of 0.05 (first approach, above).</li>
 </ul></li>
-<li><p>This controls the Family-wise Error Rate (FWER), so that P(Type I error) &lt; 0.05 across <em>all tests being performed</em>.</p></li>
+<li><p>This controls the Family-wise Error Rate (FWER) so that P(Type I error) &lt; 0.05 across <em>all tests being performed</em>.</p></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Types of error rate control</h2></hgroup><article  id="types-of-error-rate-control">
@@ -4269,7 +4269,7 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 
 <ul>
 <li>In this case, it hasn’t changed our conclusions (differences between OJ and VC for 0.5mg and 1.0mg, but not for 2.0mg)</li>
-<li><b>BUT</b> when you’ve tested multiple hypothesis, and your &ldquo;best&rdquo; p-values are between 0.01 and 0.05, then performing multiple testing correction will likely make your results non-significant.</li>
+<li><b>BUT</b> when you’ve tested multiple hypotheses, and your &ldquo;best&rdquo; p-values are between 0.01 and 0.05, then performing multiple testing correction will likely make your results non-significant.</li>
 <li><b>THIS IS A GOOD THING!</b>
 
 <ul>
@@ -4295,8 +4295,8 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 <li><p>Causes two types of publication bias:</p>
 
 <ol>
-<li><p>The &ldquo;file drawer effect&rdquo;: non-significant results are under reported</p></li>
-<li><p>And &ldquo;P-hacking&rdquo;: selective reporting of of only significant results</p></li>
+<li><p>The &ldquo;file drawer effect&rdquo;: non-significant results are under-reported</p></li>
+<li><p>And &ldquo;P-hacking&rdquo;: selective reporting of only significant results</p></li>
 </ol>
 
 <p>Wikipedia page: <a href='https://en.wikipedia.org/wiki/Data_dredging' title=''>Data dredging</a></p></li>
@@ -4311,17 +4311,17 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 <pre class = 'prettyprint lang-r'>      n&lt;-20
       (x&lt;-rnorm(n))</pre>
 
-<pre >##  [1]  0.23117793 -1.66769310 -0.40024827  1.47599330 -1.05621059 -0.66593878
-##  [7]  0.19390337 -0.97133083  1.00416734  1.22857563  0.13949766 -0.27933194
-## [13]  1.06646239  0.08024405 -1.60214277  0.57272799  0.06107057 -0.49231990
-## [19]  0.18650330  1.96902816</pre>
+<pre >##  [1] -0.45533161 -0.34092834 -0.89989042 -0.84502431 -1.06690448 -1.42260251
+##  [7] -0.37670852 -0.02319468  0.55486101  2.21662932 -0.61311683 -2.20008480
+## [13] -0.07438692  0.96636966 -0.03191299  2.18196905  0.30364847 -1.22661663
+## [19] -0.47200984 -1.61865251</pre>
 
 <pre class = 'prettyprint lang-r'>      (y&lt;-rnorm(n))</pre>
 
-<pre >##  [1] -0.5991460  1.2929002 -0.1340480  1.1745032  2.0824605  0.2947205
-##  [7] -1.5531366  1.3240639 -0.6401088  0.4148396  0.3949639 -0.0918718
-## [13] -0.3035641 -0.2501643 -0.2650373  0.8568074 -0.5770941 -0.8136194
-## [19] -2.7785715 -0.2126426</pre>
+<pre >##  [1] -0.32071861 -0.81713465  0.50331315 -1.56383214  0.37063238 -0.79252207
+##  [7] -0.13921164 -0.54971829  0.03549387  0.39294919  0.09950760 -0.36307989
+## [13]  1.09859172 -0.48596204 -2.76463727  0.06296708 -0.60246387  1.05175402
+## [19]  0.18212435 -0.51205191</pre>
 
 </article></slide><slide class=""><hgroup><h2>A demonstration – test for a significant difference</h2></hgroup><article  id="a-demonstration-test-for-a-significant-difference">
 
@@ -4331,13 +4331,13 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and y
-## t = 0.22207, df = 37.639, p-value = 0.8255
+## t = -0.05172, df = 35.683, p-value = 0.959
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -0.5918145  0.7376026
+##  -0.6634936  0.6305047
 ## sample estimates:
-##   mean of x   mean of y 
-##  0.05370677 -0.01918727</pre>
+##  mean of x  mean of y 
+## -0.2721944 -0.2557000</pre>
 
 </article></slide><slide class=""><hgroup><h2>A demonstration – another test for a significant difference</h2></hgroup><article  id="a-demonstration-another-test-for-a-significant-difference">
 
@@ -4347,13 +4347,13 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and y
-## t = 0.22207, df = 37.639, p-value = 0.5873
+## t = -0.05172, df = 35.683, p-value = 0.4795
 ## alternative hypothesis: true difference in means is less than 0
 ## 95 percent confidence interval:
-##       -Inf 0.6264344
+##       -Inf 0.5220637
 ## sample estimates:
-##   mean of x   mean of y 
-##  0.05370677 -0.01918727</pre>
+##  mean of x  mean of y 
+## -0.2721944 -0.2557000</pre>
 
 </article></slide><slide class=""><hgroup><h2>A demonstration – another test for a significant difference</h2></hgroup><article  id="a-demonstration-another-test-for-a-significant-difference-1">
 
@@ -4363,13 +4363,13 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 ##  Welch Two Sample t-test
 ## 
 ## data:  x and y
-## t = 0.22207, df = 37.639, p-value = 0.4127
+## t = -0.05172, df = 35.683, p-value = 0.5205
 ## alternative hypothesis: true difference in means is greater than 0
 ## 95 percent confidence interval:
-##  -0.4806463        Inf
+##  -0.5550526        Inf
 ## sample estimates:
-##   mean of x   mean of y 
-##  0.05370677 -0.01918727</pre>
+##  mean of x  mean of y 
+## -0.2721944 -0.2557000</pre>
 
 </article></slide><slide class=""><hgroup><h2>A demonstration – another test for a significant difference</h2></hgroup><article  id="a-demonstration-another-test-for-a-significant-difference-2">
 
@@ -4379,7 +4379,7 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
 ##  Wilcoxon rank sum exact test
 ## 
 ## data:  x and y
-## W = 202, p-value = 0.968
+## W = 173, p-value = 0.4777
 ## alternative hypothesis: true location shift is not equal to 0</pre>
 
 </article></slide><slide class=""><hgroup><h2>A demonstration – lots of other tests</h2></hgroup><article  id="a-demonstration-lots-of-other-tests">
@@ -4409,13 +4409,11 @@ p.adjust(pval, method=&quot;fdr&quot;)</pre>
       }
 }</pre>
 
-<pre >## Test [ 2 ] is significant (p= 0.02011137 ). You can publish this one!
-## Test [ 12 ] is significant (p= 0.03036264 ). You can publish this one!
-## Test [ 30 ] is significant (p= 0.02816426 ). You can publish this one!
-## Test [ 55 ] is significant (p= 0.04107315 ). You can publish this one!
-## Test [ 61 ] is significant (p= 0.002502195 ). You can publish this one!
-## Test [ 79 ] is significant (p= 0.04961576 ). You can publish this one!
-## Test [ 80 ] is significant (p= 0.03180251 ). You can publish this one!</pre>
+<pre >## Test [ 1 ] is significant (p= 0.02470093 ). You can publish this one!
+## Test [ 2 ] is significant (p= 0.04250651 ). You can publish this one!
+## Test [ 36 ] is significant (p= 0.01138981 ). You can publish this one!
+## Test [ 77 ] is significant (p= 0.0412068 ). You can publish this one!
+## Test [ 81 ] is significant (p= 0.002869054 ). You can publish this one!</pre>
 
 </article></slide><slide class=""><hgroup><h2>How can we know if this is a real problem?</h2></hgroup><article  id="how-can-we-know-if-this-is-a-real-problem">
 
