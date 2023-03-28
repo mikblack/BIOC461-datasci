@@ -3,10 +3,10 @@ title: "BIOC461"
 author: "Mik Black & Paul Gardner<BR>Department of Biochemistry"
 date: "30 March 2023"
 output:
+  beamer_presentation: default
+  github_document: default
   ioslides_presentation:
     widescreen: yes
-  github_document: default
-  beamer_presentation: default
 framework: io2012
 highlighter: highlight.js
 hitheme: tomorrow
@@ -19,7 +19,7 @@ subtitle: Research Design and Analysis in Biochemistry<BR>Lecture 1
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Todays lecture
+## Today's lecture
 
  1. Good practice for project organisation
  
@@ -108,7 +108,7 @@ Spend two minutes thinking about the answers to the following questions:
 
 3. If your laptop/desktop was unexpectedly destroyed by evil anti-research forces, what impact would this have on your project? (it's ok, we'll buy you a shiny new one from our "anti-anti-research forces" insurance fund).
 
-# Lets (briefly) discuss your answers...
+# Let's (briefly) discuss your answers...
 
 ## Data management
 
@@ -164,7 +164,7 @@ Spend two minutes thinking about the answers to the following questions:
 1. Place a brief explanatory comment at the start of every program.
   
     - explain what the code does, and how to use it.
-    - if approriate, include example of usage.
+    - if appropriate, include examples of usage.
   
 2. Decompose programs into functions.
  
@@ -200,7 +200,7 @@ Spend two minutes thinking about the answers to the following questions:
 
 <!-- <ol start=8>  -->
 
-<!-- <li> Do not comment and uncomment sections of code to control a program's behavior. -->
+<!-- <li> Do not comment and uncomment sections of code to control a program's behaviour. -->
 
 <!--   - error prone -->
 <!--   - use `if/else` statements instead -->
@@ -228,7 +228,7 @@ Spend two minutes thinking about the answers to the following questions:
 
 1. Create an overview of your project.
 
-    - `README.txt` or `README.md` in top-level directory
+    - `README.txt` or `README.md` in the top-level directory
     
 2. Create a shared "to-do" list for the project.
 
@@ -241,9 +241,9 @@ Spend two minutes thinking about the answers to the following questions:
 
 ## Whose project folder looks like this?
 
-<center>
 <!-- <img src="Pics/junk.jpg"> -->
-<img src="Pics/jcluttereddesktop.jpg">
+<center>
+<img src="Pics/cluttereddesktop.jpg">
 </center>
 
 Image source: [Wikimedia Commons File:Exampleofdigitalhoarding cluttereddesktop001.jpg](https://commons.wikimedia.org/wiki/File:Exampleofdigitalhoarding_cluttereddesktop001.jpg)
@@ -282,7 +282,7 @@ Image source: [Wikimedia Commons File:Exampleofdigitalhoarding cluttereddesktop0
 <li> Put external scripts or compiled programs in the bin directory.
 
   - may not be relevant for some projects (e.g., if not using compiled code)
-  - why external scripts here? Can make distinction for edited vs non-edited files: binary files and external scripts are not directly edited.
+  - why external scripts here? So you can make a distinction for edited vs non-edited files: binary files and external scripts are not directly edited.
 
 <li> Name all files to reflect their content or function.
 
@@ -331,7 +331,7 @@ Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, Teal TK.  PLoS Comput Bio
 
  - A spreadsheet application (e.g., Microsoft Excel) is often used to “organize” data.
     - Excel has the ability to make raw data look very pretty.
-    - Statistics applications (e.g., SPSS, R, SAS, Prism) often have trouble reading in the pretty data.
+    - Statistics applications (e.g., SPSS, R, SAS, Prism) often have trouble reading pretty data.
  - Try to keep it simple:
     - Samples in rows, variables in columns
     - No blank cells or rows (unless data are missing)
@@ -344,13 +344,13 @@ We're going to use some really old data as an example:
 
 <BR>
 
-We'll start off looking at a fairly typical (Excel-based) approach to data organisation and analysis.
+We'll start by looking at a fairly typical (Excel-based) approach to data organisation and analysis.
 
 ## "Tooth Growth" data set
 
  - Length of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs
  - Guinea pigs exposed to different doses of Vitamin C, via two different mechanisms.
- - Variables in data set:
+ - Variables in the data set:
       - len = Tooth length (unit unknown...)
       - supp = Vitamin C Supplement: ascorbic acid (VC) or Orange Juice (OJ)
       - dose = Dose in milligrams/day
@@ -434,7 +434,7 @@ How many did we just break?
     - preserve raw data: separate the data from the analysis
  - Analysis
     - record all the steps: use a script-based language (e.g., R or Python)
-    - separate input data from derived data: use script to read raw data and produce outputs
+    - separate input data from derived data: use a script to read raw data and produce outputs
 
 ## Data format
 
@@ -443,7 +443,7 @@ Each column is a variable, each row is an observation.
 <center><img src="PNG/toothgrowth-excel-long.png" width="250"></center>
 
 <BR>
-Save as a `.csv` file, and store in separate `Data` folder.
+Save as a `.csv` file, and store in a separate `Data` folder.
 
 ## Analysis
 
@@ -451,7 +451,7 @@ Save as a `.csv` file, and store in separate `Data` folder.
  - Let's have a look at a typical R workflow for this.
  
 ```{r}
-# Read in the data
+# Read the data
 tooth_growth = read.csv('Data/tooth-growth-long-format.csv')
 
 # Look at the first few rows
@@ -491,7 +491,7 @@ tg_summary %>% knitr::kable(., digits=2)
 
 ## How to plot?
 
- - The `ggplot2` packge for R has become (by far) the most popular tool for producing publication quality figures in R.
+ - The `ggplot2` package for R has become (by far) the most popular tool for producing publication quality figures in R.
  - It takes a little bit of effort (and Googling) to learn the syntax, but it is an <em>extremely</em> powerful and flexible tool.
  - Murray Cadzow runs courses that teach R and `ggplot` basics - these are well worth attending.
  - Let's have a look at generating a bar plot of our summary data in R.
@@ -510,7 +510,7 @@ ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) +
 
 Breaking down the code:
 
- - `ggplot` takes the data object (`tg_summary`), converts `dose` to a factor, plots `dose` on the x axis and `MeanLength` on the y axis, and uses `supp` to define colours.
+ - `ggplot` takes the data object (`tg_summary`), converts `dose` to a factor, plots `dose` on the x-axis and `MeanLength` on the y-axis, and uses `supp` to define colours.
  - `geom_bar` generates the barplot, using the values from `tg_sumamry` (`identity`) and puts the bars next to each other (`dodge`).
 
 ## Barplot: the output
@@ -538,7 +538,7 @@ ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) +
   geom_bar(stat="identity") 
 ```
 
-## Making in prettier
+## Making it prettier
 
 ```{r fig.height=4}
 ggplot(tg_summary, aes(x=as.factor(dose), y=MeanLength, fill=supp)) + 
@@ -605,12 +605,12 @@ ggplot(tooth_growth, aes(x=as.factor(dose), y=len, fill=supp)) +
 
 ## Two sample test
 
-Lets start with a smaller data set: just the OJ vs VC data for a dose of 1mg.
+Let's start with a smaller data set: just the OJ vs VC data for a dose of 1mg.
 
 ```{r}
-# Read in reduced data set
+# Read in a reduced data set
 tg_1mg = read.csv('Data/tooth-growth-long-format-dose-1mg.csv')
-# Show first few rows
+# Show the first few rows
 head(tg_1mg)
 ```
 
@@ -660,7 +660,7 @@ stripchart(rank(len) ~ supp, data=tg_1mg, method='stack', pch=20, cex=2,
            ylim=c(0.75,2.25), xlab='Rank')
 ```
 
-Stripchart of length distribution for each group:
+Stripcharts of the length distributions for each group:
 
 <center><img src="PNG/toothgrowth-length-stripchart.png" width="500"></center>
 
@@ -678,7 +678,7 @@ wilcox.test(len ~ supp, data = tg_1mg)
 
 P-value (`r round(wilcox.test(len ~ supp, data = tg_1mg)$p.value, 4)`) again suggests there is a significant length difference between the groups.
 
-NB: the warning just means that an approximation is being used to calculate the p-value, as there are ties pesent in the data (same value).
+NB: the warning just means that an approximation is being used to calculate the p-value, as there are ties present in the data (same value).
 
 ## Testing more hypotheses
 
@@ -718,7 +718,7 @@ pval
 
 ## Multiple hypothesis testing
 
- - Based on the three p-values, it looks like there is a difference in length at doses 0.5mg and 1.0mg, but not 2.0mg (amusing that p < 0.05 indicates significant).
+ - Based on the three p-values, it looks like there is a difference in length at doses 0.5mg and 1.0mg, but not 2.0mg (amusing that p < 0.05 indicates significance).
     - By setting a significance at $\alpha$ = 0.05, we are specifying the Type I error rate for our tests - also known as the false positive rate.
     - For a test where H<sub>0</sub> is true, we will incorrectly detect a difference between the means 100$\alpha$% of the time (i.e., 5%).
     - The error probability applies to each test - so we have a 5% chance of error for each test that we perform. 
@@ -726,17 +726,17 @@ pval
  
 ## Multiple testing corrections
 
- - A prevent large numbers of false positives when testing many hypotheses, we employ <b>multiple testing correction</b>. Two ways to think about it:
+ - To prevent large numbers of false positives when testing many hypotheses, we employ <b>multiple testing correction</b>. Two ways to think about it:
  
     - make the p-values BIGGER, and use the same threshold
     - make the threshold SMALLER, and use the same p-values
     
- - In Genome Wide Association Studies, the latter approach is generally used: typical genome-wide significance is set at 5x10<sup>-8</sup>.
+ - In Genome-Wide Association Studies (GWAS), the latter approach is generally used: typical genome-wide significance is set at 5x10<sup>-8</sup>.
     - Bonferroni Correction: $\alpha^{*} = \frac{\alpha}{\mathrm{number~of~tests}} = \frac{0.05}{1000000} = 5\times10^{-8}$
     - P-value < 5x10<sup>-8</sup> is required for significance.
-    - Alternatively, could multiple each p-value by 1,000,000 and use a threshold of 0.05 (first approach, above).
+    - Alternatively, could multiply each p-value by 1,000,000 and use a threshold of 0.05 (first approach, above).
 
- - This controls the Family-wise Error Rate (FWER), so that P(Type I error) < 0.05 across <em>all tests being performed</em>.
+ - This controls the Family-wise Error Rate (FWER) so that P(Type I error) < 0.05 across <em>all tests being performed</em>.
 
 ## Types of error rate control
 
@@ -769,7 +769,7 @@ p.adjust(pval, method="fdr")
 ## Impact
 
  - In this case, it hasn't changed our conclusions (differences between OJ and VC for 0.5mg and 1.0mg, but not for 2.0mg)
- - <b>BUT</b> when you've tested multiple hypothesis, and your "best" p-values are between 0.01 and 0.05, then performing multiple testing correction will likely make your results non-significant.
+ - <b>BUT</b> when you've tested multiple hypotheses, and your "best" p-values are between 0.01 and 0.05, then performing multiple testing correction will likely make your results non-significant.
  - <b>THIS IS A GOOD THING!</b>
    - it is telling you that you could have gotten these results by chance
    - either there is no difference, or your need to perform additional experimentation (i.e., increase the sample size) to be more certain.
@@ -787,9 +787,9 @@ p.adjust(pval, method="fdr")
 
  - Causes two types of publication bias:
 
-    1. The "file drawer effect": non-significant results are under reported
+    1. The "file drawer effect": non-significant results are under-reported
 
-    2. And "P-hacking": selective reporting of of only significant results 
+    2. And "P-hacking": selective reporting of only significant results 
 
     Wikipedia page: [Data dredging](https://en.wikipedia.org/wiki/Data_dredging) 
 
