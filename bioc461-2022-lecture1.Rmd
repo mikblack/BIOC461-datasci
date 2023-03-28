@@ -1,17 +1,18 @@
 ---
-title: BIOC461
-subtitle: Research Design and Analysis in Biochemistry<BR>Lecture 1
-author: Mik Black & Paul Gardner<BR>Department of Biochemistry
-date: 7 April 2022
+title: "BIOC461"
+author: "Mik Black & Paul Gardner<BR>Department of Biochemistry"
+date: "30 March 2023"
+output:
+  ioslides_presentation:
+    widescreen: yes
+  github_document: default
+  beamer_presentation: default
 framework: io2012
 highlighter: highlight.js
 hitheme: tomorrow
-widgets: mathjax 
+widgets: mathjax
 mode: selfcontained
-output: 
-  ioslides_presentation:
-    widescreen: true
-  github_document: default
+subtitle: Research Design and Analysis in Biochemistry<BR>Lecture 1
 ---
 
 ```{r setup, include=FALSE}
@@ -27,6 +28,20 @@ knitr::opts_chunk$set(echo = TRUE)
  3. Statistical testing
  
  4. P-hacking
+
+## Assessment
+
+10% assessment in class
+
+ - Select a small dataset produced in your lab.
+ 
+ - Compare how well the dataset confirms to the practices we discuss today.
+ 
+ - How could this dataset be analysed and visualised?
+ 
+ - Prepare a brief (~5mins) presentation for next week.
+ 
+ Further details are on Blackboard.
 
 # Part 1: Project Organisation
 
@@ -102,7 +117,7 @@ Spend two minutes thinking about the answers to the following questions:
     - if needed, computationally create modified versions of raw data (e.g., data cleaning).
     
  2. Ensure raw data are backed up in more than one location
-    - e.g., Biochem server + ITS High Capacity Storage, Biochem Server + Google Drive etc
+    - e.g., Biochem server + ITS High Capacity Storage, Biochem Server + Google Drive etc (<b>See Murray Cadzow's slides on BB</b>)
     - <b>Data sensitivity</b> issues with cloud-based storage providers
     
  3. Create the data you wish to see in the world 
@@ -207,7 +222,7 @@ Spend two minutes thinking about the answers to the following questions:
 
  - Your project is very likely to be part of a larger research programme, and the work you are doing has the potential to contribute to other projects in the future.
  
- - You are also collaborating with yourself: ask "present Mik" about his good friend "future Mik".
+ - You are also collaborating with yourself: ask "present you" about your good friend "future you".
  
 ## Collaboration 
 
@@ -227,8 +242,11 @@ Spend two minutes thinking about the answers to the following questions:
 ## Whose project folder looks like this?
 
 <center>
-<img src="Pics/junk.jpg">
+<!-- <img src="Pics/junk.jpg"> -->
+<img src="Pics/jcluttereddesktop.jpg">
 </center>
+
+Image source: [Wikimedia Commons File:Exampleofdigitalhoarding cluttereddesktop001.jpg](https://commons.wikimedia.org/wiki/File:Exampleofdigitalhoarding_cluttereddesktop001.jpg)
 
 ## Find a partner...
 
@@ -475,7 +493,7 @@ tg_summary %>% knitr::kable(., digits=2)
 
  - The `ggplot2` packge for R has become (by far) the most popular tool for producing publication quality figures in R.
  - It takes a little bit of effort (and Googling) to learn the syntax, but it is an <em>extremely</em> powerful and flexible tool.
- - Murray Cadzow runs courses that teach R and `ggplot` basics - these are well wroth attending.
+ - Murray Cadzow runs courses that teach R and `ggplot` basics - these are well worth attending.
  - Let's have a look at generating a bar plot of our summary data in R.
  
 ## Barplot: the code
@@ -567,7 +585,7 @@ $SEM = \frac{s}{\sqrt N}$
  
 ## Aside: a more informative plot?
 
-```{r fig.height=3.8}
+```{r fig.height=2.8}
 ggplot(tooth_growth, aes(x=as.factor(dose), y=len, fill=supp)) + 
   labs(title="Tooth length per dose", x="Dose (mg)", 
        y = "Length", fill='Supplement') +
@@ -598,7 +616,7 @@ head(tg_1mg)
 
 ## Plot the data
 
-```{r, fig.height=4.2, fig.width=5.5}
+```{r, fig.height=3.2, fig.width=5.5}
 ggplot(tg_1mg, aes(x=supp, y=len)) + 
   labs(title="Tooth length vs Supplement (1mg dose)", x="Supplement", y = "Length") +
   geom_boxplot(outlier.alpha = 0, width=0.3) + geom_jitter(width=0.12, alpha=0.7)
@@ -779,7 +797,7 @@ p.adjust(pval, method="fdr")
 
 ## A demonstration
 
- - Generate 2 randomnly sampled datasets in R
+ - Generate 2 randomly sampled datasets in R
 
 ```{r}
       n<-20
