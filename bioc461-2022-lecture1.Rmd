@@ -786,7 +786,7 @@ p.adjust(pval, method="fdr")
 
  - Also called "data dredging", is the misuse of data analysis methods to identify statistically significant results, which increases the risk of false positive findings.
 
- - Causes two types of publication bias:
+ - There are two principle causes of publication bias:
 
     1. The "file drawer effect": non-significant results are under-reported
 
@@ -886,4 +886,8 @@ wilcox.test(x,y)
 
 
 ## Solutions? 
+
+## 
+
+<center><img src="Pics/albatross.png" width="1000"></center>
 
