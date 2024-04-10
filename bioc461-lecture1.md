@@ -1,7 +1,7 @@
 BIOC461
 ================
 Mik Black & Paul Gardner<BR>Department of Biochemistry
-10 April 2024
+11 April 2024
 
 <!-- The following will produce markdown output that will be viewble on GitHub: -->
 <!-- rmarkdown::render('bioc461-lecture1.Rmd', output_format="github_document") -->
@@ -30,7 +30,7 @@ COURSE GRADE**</font>
 
 - Prepare a brief (~5mins) presentation for next week.
 
-Further details ~~are~~ will be on Blackboard.
+Further details are on Blackboard.
 
 # Part 1: Project Organisation
 
@@ -974,17 +974,17 @@ p.adjust(pval, method="fdr")
       (x<-rnorm(n))
 ```
 
-    ##  [1]  0.35181517 -0.41937352 -0.01531250  1.95550748  1.15309263 -0.71063991  0.75031735  0.61855195
-    ##  [9] -0.44531965 -0.39774237 -0.42405353 -0.16469859  0.14142544 -2.91820087  0.01467576  0.58995417
-    ## [17] -1.36859690  0.91892724 -0.42394294  0.36720756
+    ##  [1] -1.10046318  0.02529056 -0.04056675 -0.40604664 -0.36866740 -0.60687701  1.53673564  0.61337127
+    ##  [9]  0.98121187 -0.34543891 -1.09747692  1.43288348 -0.07026218  0.68418713 -0.09599613  0.02601053
+    ## [17] -0.83350737 -0.09255006 -0.33174189 -1.15277058
 
 ``` r
       (y<-rnorm(n))
 ```
 
-    ##  [1] -0.63608271 -0.06602965  0.18618176 -0.47954965  0.97554076 -1.28234645  0.15025137  0.22288343
-    ##  [9]  1.81344858  0.60051280 -0.77217149 -0.62036179  0.72294888  1.43535278  0.23512512 -0.18922683
-    ## [17] -1.09712932 -0.68815478  1.52320467  1.21667478
+    ##  [1]  1.02981998 -0.96175799 -0.22813434 -0.04979861 -1.38914557  0.27453250  0.66056829 -1.43888329
+    ##  [9]  0.21182993 -0.26030028  0.56916976 -1.04937126  1.08157050  0.39207608 -1.61430792 -0.98693402
+    ## [17]  0.55726636  0.71190768  1.04284361 -0.72556065
 
 ## A demonstration – test for a significant difference
 
@@ -996,13 +996,13 @@ t.test(x, y)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = -0.60613, df = 37.561, p-value = 0.5481
+    ## t = 0.17542, df = 37.291, p-value = 0.8617
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -0.7982277  0.4304799
+    ##  -0.4904117  0.5834052
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0213203  0.1625536
+    ##   mean of x   mean of y 
+    ## -0.06213373 -0.10863046
 
 ## A demonstration – another test for a significant difference
 
@@ -1014,13 +1014,13 @@ t.test(x, y, alternative = "less")
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = -0.60613, df = 37.561, p-value = 0.274
+    ## t = 0.17542, df = 37.291, p-value = 0.5692
     ## alternative hypothesis: true difference in means is less than 0
     ## 95 percent confidence interval:
-    ##       -Inf 0.3277248
+    ##       -Inf 0.4935776
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0213203  0.1625536
+    ##   mean of x   mean of y 
+    ## -0.06213373 -0.10863046
 
 ## A demonstration – another test for a significant difference
 
@@ -1032,13 +1032,13 @@ t.test(x, y, alternative = "greater")
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = -0.60613, df = 37.561, p-value = 0.726
+    ## t = 0.17542, df = 37.291, p-value = 0.4308
     ## alternative hypothesis: true difference in means is greater than 0
     ## 95 percent confidence interval:
-    ##  -0.6954726        Inf
+    ##  -0.4005842        Inf
     ## sample estimates:
-    ##  mean of x  mean of y 
-    ## -0.0213203  0.1625536
+    ##   mean of x   mean of y 
+    ## -0.06213373 -0.10863046
 
 ## A demonstration – another test for a significant difference
 
@@ -1050,7 +1050,7 @@ wilcox.test(x,y)
     ##  Wilcoxon rank sum exact test
     ## 
     ## data:  x and y
-    ## W = 192, p-value = 0.841
+    ## W = 195, p-value = 0.9042
     ## alternative hypothesis: true location shift is not equal to 0
 
 ## A demonstration – lots of other tests
@@ -1084,15 +1084,13 @@ wilcox.test(x,y)
 }
 ```
 
-    ## Test [ 6 ] is significant (p= 0.0490133 ). You can publish this one!
-    ## Test [ 11 ] is significant (p= 0.0300989 ). You can publish this one!
-    ## Test [ 49 ] is significant (p= 0.02202161 ). You can publish this one!
-    ## Test [ 54 ] is significant (p= 0.04177212 ). You can publish this one!
-    ## Test [ 74 ] is significant (p= 0.04014447 ). You can publish this one!
-    ## Test [ 75 ] is significant (p= 2.528061e-05 ). You can publish this one!
-    ## Test [ 78 ] is significant (p= 0.01461548 ). You can publish this one!
-    ## Test [ 90 ] is significant (p= 0.003214604 ). You can publish this one!
-    ## Test [ 96 ] is significant (p= 0.02229752 ). You can publish this one!
+    ## Test [ 6 ] is significant (p= 0.005105923 ). You can publish this one!
+    ## Test [ 23 ] is significant (p= 0.02846843 ). You can publish this one!
+    ## Test [ 30 ] is significant (p= 0.01170927 ). You can publish this one!
+    ## Test [ 43 ] is significant (p= 0.02037359 ). You can publish this one!
+    ## Test [ 72 ] is significant (p= 0.04605469 ). You can publish this one!
+    ## Test [ 87 ] is significant (p= 0.04739283 ). You can publish this one!
+    ## Test [ 89 ] is significant (p= 0.0450149 ). You can publish this one!
 
 ## How can we know if this is a real problem?
 

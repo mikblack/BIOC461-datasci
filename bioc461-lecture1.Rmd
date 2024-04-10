@@ -1,7 +1,7 @@
 ---
 title: "BIOC461"
 author: "Mik Black & Paul Gardner<BR>Department of Biochemistry"
-date: "10 April 2024"
+date: "11 April 2024"
 output:
   ioslides_presentation:
     widescreen: yes
@@ -10,7 +10,7 @@ output:
   beamer_presentation: default
 framework: io2012
 highlighter: highlight.js
-hitheme: tomorrow
+hitheme: tomorrow   
 widgets: mathjax
 mode: selfcontained
 subtitle: Research Design and Analysis in Biochemistry<BR>Lecture 1
@@ -45,7 +45,7 @@ knitr::opts_chunk$set(echo = TRUE)
  
  - Prepare a brief (~5mins) presentation for next week.
  
- Further details ~~are~~ will be on Blackboard.
+ Further details are on Blackboard.
 
 # Part 1: Project Organisation
 
