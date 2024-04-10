@@ -16,6 +16,9 @@ mode: selfcontained
 subtitle: Research Design and Analysis in Biochemistry<BR>Lecture 1
 ---
 
+<!-- The following will produce markdown output that will be viewble on GitHub: -->
+<!-- rmarkdown::render('bioc461-lecture1.Rmd', output_format="github_document") -->
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
