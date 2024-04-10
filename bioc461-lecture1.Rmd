@@ -1,7 +1,7 @@
 ---
 title: "BIOC461"
 author: "Mik Black & Paul Gardner<BR>Department of Biochemistry"
-date: "30 March 2023"
+date: "10 April 2024"
 output:
   ioslides_presentation:
     widescreen: yes
@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Assessment
 
-10% assessment in class
+10% assessment in class - <font color="red">**THIS COUNTS TOWARDS YOUR COURSE GRADE**</font>
 
  - Select a small dataset produced in your lab.
  
@@ -42,7 +42,7 @@ knitr::opts_chunk$set(echo = TRUE)
  
  - Prepare a brief (~5mins) presentation for next week.
  
- Further details are on Blackboard.
+ Further details ~~are~~ will be on Blackboard.
 
 # Part 1: Project Organisation
 
@@ -247,7 +247,7 @@ Spend two minutes thinking about the answers to the following questions:
 <img src="Pics/cluttereddesktop.jpg">
 </center>
 
-Image source: [Wikimedia Commons File:Exampleofdigitalhoarding cluttereddesktop001.jpg](https://commons.wikimedia.org/wiki/File:Exampleofdigitalhoarding_cluttereddesktop001.jpg)
+[Wikimedia Commons File: Exampleofdigitalhoarding cluttereddesktop001.jpg](https://commons.wikimedia.org/wiki/File:Exampleofdigitalhoarding_cluttereddesktop001.jpg)
 
 ## Find a partner...
 
@@ -466,6 +466,7 @@ The `dplyr` package for R provides a nice way to generate data summaries.
 ```{r, message=FALSE, warning=FALSE}
 # Load dplyr package
 library(dplyr)
+
 # Generate data summary object (tg_summary)
 tg_summary = tooth_growth %>% 
   group_by(supp, dose) %>%  
@@ -494,7 +495,9 @@ tg_summary %>% knitr::kable(., digits=2)
 
  - The `ggplot2` package for R has become (by far) the most popular tool for producing publication quality figures in R.
  - It takes a little bit of effort (and Googling) to learn the syntax, but it is an <em>extremely</em> powerful and flexible tool.
- - Murray Cadzow runs courses that teach R and `ggplot` basics - these are well worth attending.
+ - Some handy resources:
+    - R for Data Science (2nd edition): https://r4ds.hadley.nz/
+    - R Graphics Cookbook: https://r-graphics.org/
  - Let's have a look at generating a bar plot of our summary data in R.
  
 ## Barplot: the code
@@ -594,11 +597,11 @@ ggplot(tooth_growth, aes(x=as.factor(dose), y=len, fill=supp)) +
   geom_jitter(position = position_jitterdodge(jitter.width=0.12), alpha=0.7)
 ```
 
-## Datasaurus
+## Datasaurus: visualise your data!
 
 <center><img src="PNG/datasaurus.png" width="600"></center>
 
- - URL: [https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03](https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03) 
+https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03
 
 
 
@@ -775,7 +778,7 @@ p.adjust(pval, method="fdr")
    - it is telling you that you could have gotten these results by chance
    - either there is no difference, or your need to perform additional experimentation (i.e., increase the sample size) to be more certain.
    
-# Part 3 - P-hacking
+# Part 4 - P-hacking
 
 ## P-hacking
 
