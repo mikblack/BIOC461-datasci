@@ -1,7 +1,7 @@
 ---
 title: "BIOC461"
 author: "Mik Black & Paul Gardner<BR>Department of Biochemistry"
-date: "11 April 2024"
+date: "3 April 2025"
 output:
   ioslides_presentation:
     widescreen: yes
@@ -13,14 +13,17 @@ highlighter: highlight.js
 hitheme: tomorrow   
 widgets: mathjax
 mode: selfcontained
-subtitle: Research Design and Analysis in Biochemistry<BR>Lecture 1
+subtitle: Research Design and Analysis in Biochemistry
 ---
 
 <!-- The following will produce markdown output that will be viewble on GitHub: -->
 <!-- rmarkdown::render('bioc461-lecture1.Rmd', output_format="github_document") -->
+<!-- knit file again afterwards to update html (otherwise it is ugly) -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+# So that different versions of document (.md, .html) don't have different results.
+set.seed(123)
 ```
 
 ## Today's lecture
@@ -121,7 +124,7 @@ Spend two minutes thinking about the answers to the following questions:
     - if needed, computationally create modified versions of raw data (e.g., data cleaning).
     
  2. Ensure raw data are backed up in more than one location
-    - e.g., Biochem server + ITS High Capacity Storage, Biochem Server + Google Drive etc (<b>See Murray Cadzow's slides on BB</b>)
+    - e.g., ITS High Capacity Storage + Google Drive (<b>see Murray Cadzow's slides on Blackboard</b>)
     - <b>Data sensitivity</b> issues with cloud-based storage providers
     
  3. Create the data you wish to see in the world 
@@ -173,7 +176,7 @@ Spend two minutes thinking about the answers to the following questions:
 2. Decompose programs into functions.
  
     - breaks tasks into small (well-documented) chunks
-    - digestible => understandable
+    - digestible = understandable
   
 3. Be ruthless about eliminating duplication.
  
@@ -250,7 +253,9 @@ Spend two minutes thinking about the answers to the following questions:
 <img src="Pics/cluttereddesktop.jpg">
 </center>
 
+<font size="3">
 [Wikimedia Commons File: Exampleofdigitalhoarding cluttereddesktop001.jpg](https://commons.wikimedia.org/wiki/File:Exampleofdigitalhoarding_cluttereddesktop001.jpg)
+</font>
 
 ## Find a partner...
 
@@ -312,7 +317,7 @@ Spend two minutes thinking about the answers to the following questions:
 |    |-- runall.py
 ```
 
-<font size="2">
+<font size="3">
 Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, Teal TK.  PLoS Comput Biol. 2017 Jun 22;13(6):e1005510.<BR>
 [10.1371/journal.pcbi.1005510](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) 
 </font>
@@ -604,8 +609,11 @@ ggplot(tooth_growth, aes(x=as.factor(dose), y=len, fill=supp)) +
 
 <center><img src="PNG/datasaurus.png" width="600"></center>
 
-https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03
+<BR>
 
+<font size="4">
+https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03
+</font>
 
 
 # Part 3 - Statistical Testing
@@ -799,17 +807,17 @@ p.adjust(pval, method="fdr")
     2. And "P-hacking": selective reporting of only significant results 
 
     Wikipedia page: [Data dredging](https://en.wikipedia.org/wiki/Data_dredging) 
-
-
+    
+    XKCD wisdom: [Significant](https://xkcd.com/882/)
 
 ## A demonstration
 
  - Generate 2 randomly sampled datasets in R
 
 ```{r}
-      n<-20
-      (x<-rnorm(n))
-      (y<-rnorm(n))
+n = 20
+(x = rnorm(n))
+(y = rnorm(n))
 ```
 
 ## A demonstration -- test for a significant difference 
@@ -822,7 +830,6 @@ t.test(x, y)
 
 ```{r}
 t.test(x, y, alternative = "less")
-
 ```
 
 ## A demonstration  -- another test for a significant difference 
@@ -861,9 +868,9 @@ wilcox.test(x,y)
 
 ```{r}
  for (l in 1:100){
-      y  <- rnorm(50)
-      x  <- rnorm(50) 
-      p <- t.test(x, y)$p.value
+      y = rnorm(50)
+      x = rnorm(50) 
+      p = t.test(x, y)$p.value
       if(p < 0.05){
            cat("Test [", l, "] is significant (p=", p, "). You can publish this one!\n")
       }
@@ -876,10 +883,11 @@ wilcox.test(x,y)
 
 <center><img src="PNG/p-curve.png" width="400"></center>
 
+<BR>
 
  - **A peculiar prevalence of p values just below .05**:
-    <BR>
-    Masicampo EJ, Lalande DR. Quarterly journal of experimental psychology. 2012 Nov;65(11):2271-9.
+    <BR><BR>
+    Masicampo EJ, Lalande DR. *Quarterly Journal of Experimental Psychology.* 2012 Nov;65(11):2271-9.
     <BR> 
     doi: [10.1080/17470218.2012.711335](https://doi.org/10.1080/17470218.2012.711335) 
 
@@ -891,7 +899,7 @@ wilcox.test(x,y)
 <center><img src="PNG/spurious.png" width="700"></center>
 
 
-## Solutions? 
+# Solutions? 
 
 ## 
 

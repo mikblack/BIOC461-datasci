@@ -1,10 +1,11 @@
 BIOC461
 ================
 Mik Black & Paul Gardner<BR>Department of Biochemistry
-11 April 2024
+3 April 2025
 
 <!-- The following will produce markdown output that will be viewble on GitHub: -->
 <!-- rmarkdown::render('bioc461-lecture1.Rmd', output_format="github_document") -->
+<!-- knit file again afterwards to update html (otherwise it is ugly) -->
 
 ## Today’s lecture
 
@@ -125,8 +126,8 @@ Spend two minutes thinking about the answers to the following questions:
     - if needed, computationally create modified versions of raw data
       (e.g., data cleaning).
 2.  Ensure raw data are backed up in more than one location
-    - e.g., Biochem server + ITS High Capacity Storage, Biochem Server +
-      Google Drive etc (<b>See Murray Cadzow’s slides on BB</b>)
+    - e.g., ITS High Capacity Storage + Google Drive (<b>see Murray
+      Cadzow’s slides on Blackboard</b>)
     - <b>Data sensitivity</b> issues with cloud-based storage providers
 3.  Create the data you wish to see in the world
     - non-proprietary (preferably text-based) formats
@@ -174,7 +175,7 @@ Record all the steps used to process data.
 2.  Decompose programs into functions.
 
     - breaks tasks into small (well-documented) chunks
-    - digestible =\> understandable
+    - digestible = understandable
 
 3.  Be ruthless about eliminating duplication.
 
@@ -253,8 +254,9 @@ Make dependencies and requirements explicit.
 <img src="Pics/cluttereddesktop.jpg">
 </center>
 
-[Wikimedia Commons File: Exampleofdigitalhoarding
+<font size="3"> [Wikimedia Commons File: Exampleofdigitalhoarding
 cluttereddesktop001.jpg](https://commons.wikimedia.org/wiki/File:Exampleofdigitalhoarding_cluttereddesktop001.jpg)
+</font>
 
 ## Find a partner…
 
@@ -325,7 +327,7 @@ Name all files to reflect their content or function.
     |    |-- sightings_analysis.py
     |    |-- runall.py
 
-<font size="2"> Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L,
+<font size="3"> Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L,
 Teal TK. PLoS Comput Biol. 2017 Jun 22;13(6):e1005510.<BR>
 [10.1371/journal.pcbi.1005510](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
 </font>
@@ -691,7 +693,11 @@ ggplot(tooth_growth, aes(x=as.factor(dose), y=len, fill=supp)) +
 <img src="PNG/datasaurus.png" width="600">
 </center>
 
+<BR>
+
+<font size="4">
 <https://www.autodesk.com/research/publications/same-stats-different-graphs?s=03>
+</font>
 
 # Part 3 - Statistical Testing
 
@@ -798,8 +804,7 @@ differences.
 wilcox.test(len ~ supp, data = tg_1mg)
 ```
 
-    ## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot compute exact p-value with
-    ## ties
+    ## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot compute exact p-value with ties
 
     ## 
     ##  Wilcoxon rank sum test with continuity correction
@@ -965,26 +970,28 @@ p.adjust(pval, method="fdr")
   Wikipedia page: [Data
   dredging](https://en.wikipedia.org/wiki/Data_dredging)
 
+  XKCD wisdom: [Significant](https://xkcd.com/882/)
+
 ## A demonstration
 
 - Generate 2 randomly sampled datasets in R
 
 ``` r
-      n<-20
-      (x<-rnorm(n))
+n = 20
+(x = rnorm(n))
 ```
 
-    ##  [1] -1.10046318  0.02529056 -0.04056675 -0.40604664 -0.36866740 -0.60687701  1.53673564  0.61337127
-    ##  [9]  0.98121187 -0.34543891 -1.09747692  1.43288348 -0.07026218  0.68418713 -0.09599613  0.02601053
-    ## [17] -0.83350737 -0.09255006 -0.33174189 -1.15277058
+    ##  [1]  0.07050839  0.12928774  1.71506499  0.46091621 -1.26506123 -0.68685285 -0.44566197  1.22408180
+    ##  [9]  0.35981383  0.40077145  0.11068272 -0.55584113  1.78691314  0.49785048 -1.96661716  0.70135590
+    ## [17] -0.47279141 -1.06782371 -0.21797491 -1.02600445
 
 ``` r
-      (y<-rnorm(n))
+(y = rnorm(n))
 ```
 
-    ##  [1]  1.02981998 -0.96175799 -0.22813434 -0.04979861 -1.38914557  0.27453250  0.66056829 -1.43888329
-    ##  [9]  0.21182993 -0.26030028  0.56916976 -1.04937126  1.08157050  0.39207608 -1.61430792 -0.98693402
-    ## [17]  0.55726636  0.71190768  1.04284361 -0.72556065
+    ##  [1] -0.72889123 -0.62503927 -1.68669331  0.83778704  0.15337312 -1.13813694  1.25381492  0.42646422
+    ##  [9] -0.29507148  0.89512566  0.87813349  0.82158108  0.68864025  0.55391765 -0.06191171 -0.30596266
+    ## [17] -0.38047100 -0.69470698 -0.20791728 -1.26539635
 
 ## A demonstration – test for a significant difference
 
@@ -996,13 +1003,13 @@ t.test(x, y)
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = 0.17542, df = 37.291, p-value = 0.8617
+    ## t = 0.11133, df = 37.088, p-value = 0.912
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -0.4904117  0.5834052
+    ##  -0.5451517  0.6085496
     ## sample estimates:
     ##   mean of x   mean of y 
-    ## -0.06213373 -0.10863046
+    ## -0.01236911 -0.04406804
 
 ## A demonstration – another test for a significant difference
 
@@ -1014,13 +1021,13 @@ t.test(x, y, alternative = "less")
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = 0.17542, df = 37.291, p-value = 0.5692
+    ## t = 0.11133, df = 37.088, p-value = 0.544
     ## alternative hypothesis: true difference in means is less than 0
     ## 95 percent confidence interval:
-    ##       -Inf 0.4935776
+    ##       -Inf 0.5120184
     ## sample estimates:
     ##   mean of x   mean of y 
-    ## -0.06213373 -0.10863046
+    ## -0.01236911 -0.04406804
 
 ## A demonstration – another test for a significant difference
 
@@ -1032,13 +1039,13 @@ t.test(x, y, alternative = "greater")
     ##  Welch Two Sample t-test
     ## 
     ## data:  x and y
-    ## t = 0.17542, df = 37.291, p-value = 0.4308
+    ## t = 0.11133, df = 37.088, p-value = 0.456
     ## alternative hypothesis: true difference in means is greater than 0
     ## 95 percent confidence interval:
-    ##  -0.4005842        Inf
+    ##  -0.4486206        Inf
     ## sample estimates:
     ##   mean of x   mean of y 
-    ## -0.06213373 -0.10863046
+    ## -0.01236911 -0.04406804
 
 ## A demonstration – another test for a significant difference
 
@@ -1050,7 +1057,7 @@ wilcox.test(x,y)
     ##  Wilcoxon rank sum exact test
     ## 
     ## data:  x and y
-    ## W = 195, p-value = 0.9042
+    ## W = 197, p-value = 0.9467
     ## alternative hypothesis: true location shift is not equal to 0
 
 ## A demonstration – lots of other tests
@@ -1075,22 +1082,17 @@ wilcox.test(x,y)
 
 ``` r
  for (l in 1:100){
-      y  <- rnorm(50)
-      x  <- rnorm(50) 
-      p <- t.test(x, y)$p.value
+      y = rnorm(50)
+      x = rnorm(50) 
+      p = t.test(x, y)$p.value
       if(p < 0.05){
            cat("Test [", l, "] is significant (p=", p, "). You can publish this one!\n")
       }
 }
 ```
 
-    ## Test [ 6 ] is significant (p= 0.005105923 ). You can publish this one!
-    ## Test [ 23 ] is significant (p= 0.02846843 ). You can publish this one!
-    ## Test [ 30 ] is significant (p= 0.01170927 ). You can publish this one!
-    ## Test [ 43 ] is significant (p= 0.02037359 ). You can publish this one!
-    ## Test [ 72 ] is significant (p= 0.04605469 ). You can publish this one!
-    ## Test [ 87 ] is significant (p= 0.04739283 ). You can publish this one!
-    ## Test [ 89 ] is significant (p= 0.0450149 ). You can publish this one!
+    ## Test [ 45 ] is significant (p= 0.01118617 ). You can publish this one!
+    ## Test [ 79 ] is significant (p= 0.01904146 ). You can publish this one!
 
 ## How can we know if this is a real problem?
 
@@ -1100,9 +1102,11 @@ wilcox.test(x,y)
 <img src="PNG/p-curve.png" width="400">
 </center>
 
-- **A peculiar prevalence of p values just below .05**: <BR> Masicampo
-  EJ, Lalande DR. Quarterly journal of experimental psychology. 2012
-  Nov;65(11):2271-9. <BR> doi:
+<BR>
+
+- **A peculiar prevalence of p values just below .05**: <BR><BR>
+  Masicampo EJ, Lalande DR. *Quarterly Journal of Experimental
+  Psychology.* 2012 Nov;65(11):2271-9. <BR> doi:
   [10.1080/17470218.2012.711335](https://doi.org/10.1080/17470218.2012.711335)
 
 ## Spurious correlations
@@ -1113,7 +1117,7 @@ wilcox.test(x,y)
 <img src="PNG/spurious.png" width="700">
 </center>
 
-## Solutions?
+# Solutions?
 
 ## 
 
